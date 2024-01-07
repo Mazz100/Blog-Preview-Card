@@ -29,7 +29,7 @@ body {
     @include Flex(column);
     align-items: start;
     gap: 1.3em;
-    
+
     background-color: $white;
     padding: 1.2em;
     border-top: 0.1em solid $black;
@@ -49,31 +49,71 @@ body {
     align-items: start;
     gap: 0.8em;
 
-    h1 {
+    .learning-header {
         background-color: $primary-color;
         padding: 0.5em;
         border-radius: 0.5em;
         font-size: 0.875rem;
+        font-weight: 800;
         width: max-content;
-        
+
     }
 
-    .publish-text{
-        font-size: 0.875rem;
+    .publish-text {
+        font-size: 0.75rem;
     }
 
-    .foundation-header{
+    .foundation-header {
         font-size: 1.25rem;
     }
 
-    .description{
+    .description {
         color: $gray;
         font-size: 0.875rem;
     }
 }
 
-.author-group{
+.author-group {
     @include Flex(row);
     justify-content: start;
     gap: 0.6em;
+
+    .author {
+        font-weight: 800;
+    }
+}
+
+//Underline default style
+.anchor-link {
+    display: block;
+    position: relative;
+    text-decoration: none;
+    padding: 0.2em 0;
+    color: $black;
+    overflow: hidden;
+    
+}
+
+.anchor-link::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 0.2em;
+    background-color: $primary-color;
+    opacity: 0.5;
+    transform: translate3d(-100%, 0, 0);
+    transition: all 250ms ease-in-out,;
+}
+
+//Active States / Hover
+.anchor-link:hover::before,
+.anchor-link:focus::before {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+}
+
+.anchor-link:hover {
+    color: $primary-color;
 }
