@@ -1,0 +1,79 @@
+//Variables
+$primary-color: hsl(47, 88%, 63%);
+$white: hsl(0, 0%, 100%);
+$black: hsl(0, 0%, 0%);
+$gray: hsl(0, 0%, 50%);
+@use 'reset';
+
+@mixin Flex($direction) {
+    display: flex;
+    flex-direction: $direction;
+    justify-content: center;
+    align-items: center;
+}
+
+body {
+    @include Flex(column);
+
+    background-color: $primary-color;
+    font-family: 'Figtree', sans-serif;
+}
+
+.container {
+    @include Flex(column);
+    flex: 1;
+    max-width: 20rem;
+}
+
+.main-wrapper {
+    @include Flex(column);
+    align-items: start;
+    gap: 1.3em;
+    
+    background-color: $white;
+    padding: 1.2em;
+    border-top: 0.1em solid $black;
+    border-left: 0.1em solid $black;
+    border-radius: 1em;
+    box-shadow: 0.5em 0.5em $black;
+}
+
+.illustration {
+    overflow: hidden;
+    border-radius: 0.5em;
+
+}
+
+.content {
+    @include Flex(column);
+    align-items: start;
+    gap: 0.8em;
+
+    h1 {
+        background-color: $primary-color;
+        padding: 0.5em;
+        border-radius: 0.5em;
+        font-size: 0.875rem;
+        width: max-content;
+        
+    }
+
+    .publish-text{
+        font-size: 0.875rem;
+    }
+
+    .foundation-header{
+        font-size: 1.25rem;
+    }
+
+    .description{
+        color: $gray;
+        font-size: 0.875rem;
+    }
+}
+
+.author-group{
+    @include Flex(row);
+    justify-content: start;
+    gap: 0.6em;
+}
